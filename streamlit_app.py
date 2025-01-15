@@ -45,10 +45,9 @@ safety_settings = [
     ),
 ]
 
+st.header("Welcome to greeting bot!")
+st.write("Give me a greeting and I'll give you one back!")
 
-
-st.write("Hello to CreateHer Fest!")
-possible_responses = ['Heeeyyaaa!!', "yo yo yo", "Hello I'm a bot!!"]
 
 if "messages" not in st.session_state:
     st.session_state['messages'] = []
@@ -69,5 +68,4 @@ if user_input:
 
     with st.chat_message("assistant"):
         response = st.write_stream(multiturn_generate_content(user_input))
-
         st.session_state['messages'].append({'role':'assistant', 'content':response})
